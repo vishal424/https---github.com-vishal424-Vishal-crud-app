@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>Vishal CRUD operation Example</h1>
+  
+    <a href="#" routerLink="/product/create/" class="btn btn-success">Create New Product</a>
+    
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Body</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let product of product">
+        <td>{{ product.id }}</td>
+        <td>{{ product.title }}</td>
+        <td>{{ product.body }}</td>
+        <td>
+          <a href="#" [routerLink]="['/product/', product.id, 'view']" class="btn btn-info">View</a>
+          <a href="#" [routerLink]="['/product/', product.id, 'edit']" class="btn btn-primary">Edit</a>
+          <button type="button" (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </table>
+ </div>

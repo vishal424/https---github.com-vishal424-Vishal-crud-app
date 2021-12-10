@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>View Product</h1>
+  
+    <a href="#" routerLink="/product/index" class="btn btn-primary">Back</a>
+   
+    <div *ngFor="let item of product">
+        <strong>ID:</strong>
+        <p>{{ item.id }}</p>
+    </div>
+<!--    
+    <div>
+        <strong>Title:</strong>
+        <p>{{ product.title }}</p>
+    </div>
+   
+    <div>
+        <strong>Body:</strong>
+        <p>{{ product.body }}</p>
+    </div>
+    -->
+</div>

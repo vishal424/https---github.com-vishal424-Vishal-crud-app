@@ -1,0 +1,35 @@
+<div class="container">
+    
+  <!-- FormGroup -->
+  <form #tdForm="ngForm" (ngSubmit)="onSubmit(tdForm)"> 
+    
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" class="form-control" [(ngModel)]="user.email" #emailField="ngModel"
+        required email [ngClass]="{'is-invalid' : tdForm.submitted && emailField.invalid}">
+      <div *ngIf="tdForm.submitted && emailField.invalid && emailField.errors.required" class="alert alert-danger"
+        role="alert">
+        <div *ngIf="emailField.errors.required">Email Address is required</div>
+      </div>
+      <div *ngIf="tdForm.submitted && emailField.invalid  && emailField.errors.email" class="alert alert-danger"
+        role="alert">
+        <div *ngIf="emailField.errors.email">Invalid email address!!</div>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" class="form-control" [(ngModel)]="user.password"
+        #passwordField="ngModel" required [ngClass]="{'is-invalid' : tdForm.submitted && passwordField.invalid}">
+      <div *ngIf="tdForm.submitted && passwordField.invalid" class="alert alert-danger" role="alert">
+        <div *ngIf="passwordField.errors.required">Password is required</div>
+      </div>
+    </div>
+    <button class="btn btn-primary" name="submit" type="submit"> Submit </button>
+    <!-- <button class="btn btn-primary" name="submit" [disabled]="tdForm.invalid" type="submit"> Submit </button> -->
+
+  </form>
+  <h4>{{user|json}}</h4>
+  <!-- ********************************************************************************************** -->
+  <!-- <h4>{{tdForm|json}}</h4> -->
+</div>
