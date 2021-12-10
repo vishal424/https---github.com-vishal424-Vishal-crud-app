@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 
 
 import {AuthService} from 'src/app/_services/auth.service';
+import { IUser } from '../_services/user';
 
 // C:\Users\vishal\Vishal-crud-app\src\app\_services\auth.service.ts
 
@@ -13,6 +14,23 @@ import {AuthService} from 'src/app/_services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+
+  defaultUser: IUser = {
+    name: null,
+    address: null,
+    dob: null,
+    state: null,
+    gender: null,
+    subscribe: null,
+    landmark: null,
+    theme: null,
+    password: null,
+    email: null
+  };
+  user: IUser = { ...this.defaultUser }
+  errorMessage: string;
+  
 
   model: any = {};
   submitted :any
